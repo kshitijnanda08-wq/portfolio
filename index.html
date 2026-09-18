@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Kshitij Nanda — performance marketing portfolio. Paid search, SEO, and content case studies for D2C fitness and nutrition brands.">
+<meta name="theme-color" content="#0A0E17">
+<meta property="og:title" content="Kshitij Nanda | Performance Marketing">
+<meta property="og:description" content="SEO audits, performance marketing campaigns, WordPress development, and graphic design case studies.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23E8B923'/%3E%3Ctext x='16' y='22' font-family='Arial' font-weight='800' font-size='17' fill='%230A0E17' text-anchor='middle'%3EK%3C/text%3E%3C/svg%3E">
+<title>Kshitij Nanda | Performance Marketing</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+  :root {
+    --bg: #0A0E17;
+    --bg-elevated: #121A2B;
+    --bg-elevated-2: #17203A;
+    --gold: #E8B923;
+    --gold-bright: #F5CA3C;
+    --gold-dim: #B8901C;
+    --text: #F4F1EA;
+    --muted: #8D96AC;
+    --muted-dim: #626B82;
+    --border: #232C42;
+    --accent-green: #4ADE80;
+    --font-display: 'Archivo Black', 'Archivo', sans-serif;
+    --font-alt: 'Archivo', sans-serif;
+    --font-body: 'Space Grotesk', sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  a { color: inherit; }
+  ::selection { background: var(--gold); color: var(--bg); }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 32px; }
+
+  @keyframes rise { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes floaty { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  @keyframes pulse-ring { 0% { transform: scale(0.6); opacity: 0.8; } 100% { transform: scale(2); opacity: 0; } }
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 700ms ease, transform 700ms ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  .skip-link { position: absolute; left: -9999px; top: 0; background: var(--gold); color: var(--bg); padding: 12px 20px; z-index: 100; font-weight: 700; }
+  .skip-link:focus { left: 0; }
+
+  /* ---------- NAV ---------- */
+  header { position: sticky; top: 0; z-index: 30; background: rgba(10,14,23,0.86); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); }
+  nav.wrap { display: flex; justify-content: space-between; align-items: center; height: 76px; }
+  .brand { font-family: var(--font-display); font-size: 0.95rem; letter-spacing: 0.02em; display: flex; align-items: center; gap: 10px; }
+  .brand-mark { width: 34px; height: 34px; border-radius: 8px; background: var(--gold); color: var(--bg); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 0.85rem; }
+  .brand .sub-brand { display: block; font-size: 0.6rem; letter-spacing: 0.14em; color: var(--muted); font-family: var(--font-body); font-weight: 600; margin-top: 2px; }
+  .nav-links { display: flex; gap: 34px; list-style: none; font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+  .nav-links a { text-decoration: none; transition: color 200ms ease; position: relative; }
+  .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+  .nav-links a:focus-visible { outline: 1px solid var(--gold); outline-offset: 4px; }
+  .nav-cta {
+    border: 1px solid var(--gold); color: var(--gold); font-size: 0.76rem; font-weight: 700; letter-spacing: 0.06em;
+    text-transform: uppercase; padding: 10px 20px; border-radius: 999px; text-decoration: none; cursor: pointer;
+    transition: background 180ms ease, color 180ms ease;
+  }
+  .nav-cta:hover { background: var(--gold); color: var(--bg); }
+
+  /* ---------- HERO ---------- */
+  .hero { padding: 76px 0 60px; position: relative; }
+  .hero-grid { display: grid; grid-template-columns: 1fr 0.82fr; gap: 50px; align-items: center; }
+  .status-pill {
+    display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--border); background: var(--bg-elevated);
+    padding: 7px 14px; border-radius: 999px; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 26px; animation: rise 600ms ease both;
+  }
+  .status-pill .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent-green); position: relative; }
+  .status-pill .dot::after { content: ""; position: absolute; inset: -4px; border-radius: 50%; border: 1.5px solid var(--accent-green); animation: pulse-ring 1.8s ease-out infinite; }
+
+  .hero-copy { animation: rise 700ms 100ms ease both; }
+  h1.headline { font-family: var(--font-display); font-size: clamp(2.6rem, 6vw, 4.4rem); line-height: 0.98; letter-spacing: -0.01em; text-transform: uppercase; }
+  h1.headline .line { display: block; }
+  h1.headline .gold { color: var(--gold); }
+
+  .role-tag { margin-top: 22px; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+  .sub { margin-top: 16px; max-width: 50ch; font-size: 1.02rem; color: var(--muted); }
+  .sub strong { color: var(--text); font-weight: 600; }
+
+  .hero-ctas { margin-top: 34px; display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 26px; border-radius: 8px; font-size: 0.82rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; text-decoration: none; cursor: pointer; transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease, color 180ms ease; }
+  .btn-primary { background: var(--gold); color: var(--bg); box-shadow: 0 14px 30px -14px rgba(232,185,35,0.55); }
+  .btn-primary:hover { background: var(--gold-bright); transform: translateY(-2px); }
+  .btn-ghost { background: transparent; color: var(--text); border: 1px solid var(--border); }
+  .btn-ghost:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
+  .btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+  /* hero photo + floating badges */
+  .hero-photo-wrap { position: relative; animation: rise 700ms 220ms ease both; }
+  .hero-photo-frame {
+    position: relative; border-radius: 18px; overflow: hidden; aspect-ratio: 4/5;
+    border: 1px solid var(--border); box-shadow: 0 30px 70px -30px rgba(232,185,35,0.25), 0 0 0 1px rgba(232,185,35,0.06);
+  }
+  .hero-photo-frame img { width: 100%; height: 100%; object-fit: cover; display: block; filter: saturate(1.02); }
+  .hero-photo-frame::after { content: ""; position: absolute; inset: 0; box-shadow: inset 0 0 60px rgba(0,0,0,0.35); border-radius: inherit; }
+
+  .float-badge {
+    position: absolute; display: flex; align-items: center; gap: 8px;
+    background: rgba(18,26,43,0.92); backdrop-filter: blur(6px); border: 1px solid var(--border);
+    border-radius: 10px; padding: 9px 13px; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.03em;
+    box-shadow: 0 12px 26px -14px rgba(0,0,0,0.6); animation: floaty 5s ease-in-out infinite; text-decoration: none;
+  }
+  .float-badge .ico { width: 20px; height: 20px; border-radius: 5px; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; flex-shrink: 0; }
+  .float-badge span.label { display: flex; flex-direction: column; line-height: 1.2; }
+  .float-badge span.label small { color: var(--muted); font-weight: 600; font-size: 0.6rem; letter-spacing: 0.06em; }
+  .badge-1 { top: 6%; left: -8%; animation-delay: 0s; }
+  .badge-1 .ico { background: #3B82F6; color:#fff; }
+  .badge-2 { top: 18%; right: -10%; animation-delay: 0.6s; }
+  .badge-2 .ico { background: var(--gold); color: var(--bg); }
+  .badge-3 { bottom: 30%; left: -12%; animation-delay: 1.2s; }
+  .badge-3 .ico { background: #10B981; color:#fff; }
+  .badge-4 { bottom: 6%; right: -6%; animation-delay: 1.8s; }
+  .badge-4 .ico { background: #0A66C2; color:#fff; }
+
+  /* ---------- MARQUEE ---------- */
+  .marquee-band { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: var(--bg-elevated); overflow: hidden; padding: 15px 0; margin-top: 40px; }
+  .marquee-track { display: flex; width: max-content; animation: marquee 26s linear infinite; }
+  .marquee-track span { display: inline-flex; align-items: center; gap: 10px; font-size: 0.82rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); padding: 0 26px; white-space: nowrap; }
+  .marquee-track span::before { content: "◆"; color: var(--gold); font-size: 0.55rem; }
+  @media (prefers-reduced-motion: reduce) { .marquee-track, .float-badge, .status-pill .dot::after { animation: none !important; } }
+
+  /* ---------- SECTION SHARED ---------- */
+  .section { padding: 90px 0; }
+  .section-label { display: flex; align-items: center; gap: 10px; font-size: 0.76rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; }
+  .section-label .n { color: var(--muted-dim); }
+  .section-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; margin-bottom: 46px; }
+  h2.section-title { font-family: var(--font-display); font-size: clamp(1.9rem, 3.6vw, 2.7rem); text-transform: uppercase; line-height: 1.05; letter-spacing: -0.005em; }
+  h2.section-title .gold { color: var(--gold); }
+  .section-note { max-width: 34ch; font-size: 0.88rem; color: var(--muted); text-align: right; }
+
+  /* ---------- ABOUT ---------- */
+  .about-band { background: var(--bg-elevated); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .about-grid { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 56px; align-items: start; }
+  .about-photo { width: 74px; height: 74px; border-radius: 50%; overflow: hidden; border: 2px solid var(--gold); margin-bottom: 22px; }
+  .about-photo img { width: 100%; height: 100%; object-fit: cover; }
+  h3.about-statement { font-family: var(--font-display); font-size: clamp(1.7rem, 3.4vw, 2.5rem); text-transform: uppercase; line-height: 1.08; }
+  h3.about-statement .gold { color: var(--gold); }
+  .about-body p { font-size: 1rem; color: var(--muted); max-width: 60ch; margin-bottom: 26px; }
+  .about-body p strong { color: var(--text); }
+  .chip-tags { display: flex; flex-wrap: wrap; gap: 10px; }
+  .chip-tag { font-size: 0.78rem; font-weight: 600; padding: 9px 16px; border-radius: 999px; border: 1px solid var(--border); background: var(--bg); color: var(--muted); }
+
+  /* ---------- EXPERIENCE TIMELINE ---------- */
+  .timeline { display: flex; flex-direction: column; gap: 22px; }
+  .t-card { position: relative; border-left: 3px solid var(--border); background: var(--bg-elevated); border-radius: 0 14px 14px 0; padding: 30px 32px; transition: border-color 220ms ease, transform 220ms ease; }
+  .t-card:hover { border-left-color: var(--gold); transform: translateX(4px); }
+  .t-card-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; flex-wrap: wrap; }
+  .t-card h3 { font-family: var(--font-alt); font-weight: 800; font-size: 1.15rem; }
+  .t-card .client { font-size: 0.76rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); margin-top: 6px; }
+  .t-date { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); border: 1px solid var(--border); padding: 6px 12px; border-radius: 999px; white-space: nowrap; }
+  .t-card p.desc { font-size: 0.92rem; color: var(--muted); margin: 16px 0 18px; max-width: 68ch; }
+  .t-card .chip-row { display: flex; gap: 8px; flex-wrap: wrap; }
+  .t-chip { font-size: 0.72rem; color: var(--muted); border: 1px solid var(--border); padding: 5px 11px; border-radius: 7px; background: var(--bg); }
+  .t-card .fine { margin-top: 12px; font-size: 0.72rem; color: var(--muted-dim); font-style: italic; }
+  .t-card .case-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 16px; font-size: 0.82rem; font-weight: 700; color: var(--gold); text-decoration: none; }
+  .t-card .case-link .arrow { transition: transform 180ms ease; }
+  .t-card .case-link:hover .arrow { transform: translateX(4px); }
+
+  /* ---------- SKILLS ---------- */
+  .skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+  .skill-tile { background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 14px; padding: 26px; display: flex; gap: 18px; transition: transform 220ms ease, border-color 220ms ease; }
+  .skill-tile:hover { transform: translateY(-3px); border-color: var(--gold); }
+  .skill-tile .ico { width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; }
+  .skill-tile:nth-of-type(1) .ico { background: rgba(232,185,35,0.14); color: var(--gold); }
+  .skill-tile:nth-of-type(2) .ico { background: rgba(74,222,128,0.14); color: var(--accent-green); }
+  .skill-tile:nth-of-type(3) .ico { background: rgba(59,130,246,0.14); color: #60A5FA; }
+  .skill-tile:nth-of-type(4) .ico { background: rgba(232,185,35,0.14); color: var(--gold); }
+  .skill-tile:nth-of-type(5) .ico { background: rgba(74,222,128,0.14); color: var(--accent-green); }
+  .skill-tile:nth-of-type(6) .ico { background: rgba(59,130,246,0.14); color: #60A5FA; }
+  .skill-tile h3 { font-family: var(--font-alt); font-weight: 800; font-size: 0.98rem; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.02em; }
+  .skill-tile p { font-size: 0.85rem; color: var(--muted); }
+
+  /* ---------- STATS ---------- */
+  .stats-strip { background: var(--bg-elevated-2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); }
+  .stat-box { padding: 44px 20px; text-align: center; border-left: 1px solid var(--border); }
+  .stat-box:first-child { border-left: none; }
+  .stat-num { font-family: var(--font-display); font-size: clamp(1.7rem, 3vw, 2.3rem); color: var(--gold); }
+  .stat-label { margin-top: 8px; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+
+  /* ---------- WORK GRID ---------- */
+  .work-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); gap: 24px; }
+  .work-card { border-radius: 16px; overflow: hidden; border: 1px solid var(--border); background: var(--bg-elevated); text-decoration: none; display: block; transition: transform 240ms ease, border-color 240ms ease; }
+  .work-card:hover { transform: translateY(-6px); border-color: var(--gold); }
+  .work-thumb { aspect-ratio: 4/3; position: relative; overflow: hidden; }
+  .work-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform 400ms ease; }
+  .work-card:hover .work-thumb img { transform: scale(1.06); }
+  .work-thumb.grad-1 { background: linear-gradient(135deg, #1E293B, #334155); display: flex; align-items: center; justify-content: center; }
+  .work-thumb.grad-2 { background: linear-gradient(135deg, #1c1a12, #3a3016); display: flex; align-items: center; justify-content: center; }
+  .work-thumb .ph-icon { font-size: 2.4rem; opacity: 0.4; }
+  .work-body { padding: 22px 24px 26px; }
+  .work-tag { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); }
+  .work-card h3 { font-family: var(--font-alt); font-weight: 800; font-size: 1.05rem; margin-top: 8px; }
+  .work-cta { margin-top: 16px; display: inline-flex; align-items: center; gap: 8px; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--bg); background: var(--gold); padding: 10px 16px; border-radius: 7px; }
+
+  .cta-band { margin-top: 40px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; padding-top: 30px; border-top: 1px solid var(--border); }
+  .cta-band p { color: var(--muted); font-size: 0.92rem; }
+  .cta-band a { color: var(--gold); font-weight: 700; text-decoration: none; font-size: 0.88rem; }
+
+  /* ---------- CONTACT ---------- */
+  .contact-band { background: var(--bg-elevated); border-top: 1px solid var(--border); }
+  .contact-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 60px; }
+  .contact-info-list { margin-top: 28px; display: flex; flex-direction: column; gap: 18px; }
+  .contact-info-list .k { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted-dim); }
+  .contact-info-list .v { margin-top: 4px; font-size: 1rem; font-weight: 600; }
+  .contact-info-list .v a { text-decoration: none; transition: color 180ms ease; }
+  .contact-info-list .v a:hover { color: var(--gold); }
+  .social-row { display: flex; gap: 12px; margin-top: 30px; }
+  .social-row a {
+    width: 42px; height: 42px; border-radius: 10px; border: 1px solid var(--border); display: flex; align-items: center;
+    justify-content: center; text-decoration: none; font-size: 1rem; transition: border-color 180ms ease, color 180ms ease;
+  }
+  .social-row a:hover { border-color: var(--gold); color: var(--gold); }
+
+  .contact-form { display: flex; flex-direction: column; gap: 18px; }
+  .field label { display: block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+  .field input, .field textarea {
+    width: 100%; background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 13px 15px;
+    color: var(--text); font-family: var(--font-body); font-size: 0.92rem;
+  }
+  .field input:focus, .field textarea:focus { outline: none; border-color: var(--gold); }
+  .field textarea { min-height: 120px; resize: vertical; }
+  .submit-btn {
+    align-self: flex-start; background: var(--gold); color: var(--bg); border: none; padding: 14px 28px; border-radius: 8px;
+    font-family: var(--font-body); font-weight: 700; font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer;
+    transition: background 180ms ease, transform 180ms ease;
+  }
+  .submit-btn:hover { background: var(--gold-bright); transform: translateY(-2px); }
+  .form-note { font-size: 0.76rem; color: var(--muted-dim); }
+
+  footer { padding: 30px 0; border-top: 1px solid var(--border); }
+  .footer-row { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; font-size: 0.76rem; color: var(--muted-dim); }
+
+  @media (max-width: 900px) {
+    .hero-grid { grid-template-columns: 1fr; }
+    .hero-photo-wrap { order: -1; max-width: 340px; margin: 0 auto; }
+    .float-badge { display: none; }
+    .about-grid { grid-template-columns: 1fr; }
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .stat-box:nth-child(3) { border-left: none; }
+    .contact-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 640px) {
+    .nav-links { display: none; }
+    .skills-grid { grid-template-columns: 1fr; }
+    .section { padding: 60px 0; }
+    .section-note { text-align: left; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .reveal { transition: none; opacity: 1; transform: none; }
+  }
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to content</a>
+
+<header>
+  <nav class="wrap">
+    <a class="brand" href="#main"><span class="brand-mark">KN</span><span><span style="display:block;">KSHITIJ SINGH NANDA</span><span class="sub-brand">PERFORMANCE MARKETING</span></span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about" data-nav>About</a></li>
+      <li><a href="#experience" data-nav>Experience</a></li>
+      <li><a href="#skills" data-nav>Skills</a></li>
+      <li><a href="#work" data-nav>Work</a></li>
+      <li><a href="#contact" data-nav>Contact</a></li>
+    </ul>
+    <a class="nav-cta" href="#contact">Let's Talk</a>
+  </nav>
+</header>
+
+<main id="main">
+
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <div class="status-pill"><span class="dot"></span> Available for internships</div>
+          <h1 class="headline"><span class="line">KSHITIJ</span><span class="line gold">NANDA</span></h1>
+          <div class="role-tag">Performance Marketing &amp; SEO</div>
+          <p class="sub">BBA Marketing student turning <strong>coursework into client-facing proof</strong> — SEO audits, WordPress builds, and ad-placement testing, backed by hands-on case studies rather than a syllabus.</p>
+          <div class="hero-ctas">
+            <a class="btn btn-primary" href="#work">View The Work →</a>
+            <a class="btn btn-ghost" href="#contact">Get In Touch</a>
+          </div>
+        </div>
+        <div class="hero-photo-wrap">
+          <div class="hero-photo-frame">
+            <img src="kshitij-headshot.jpg" alt="Portrait of Kshitij Nanda" width="591" height="738" loading="eager">
+          </div>
+          <a class="float-badge badge-1" href="#work">
+            <span class="ico">📊</span>
+            <span class="label">SEO AUDITS<small>TECHNICAL &amp; COMPETITOR</small></span>
+          </a>
+          <a class="float-badge badge-2" href="case-study-ads.html">
+            <span class="ico">▶</span>
+            <span class="label">META ADS<small>PLACEMENT TESTING</small></span>
+          </a>
+          <a class="float-badge badge-3" href="#skills">
+            <span class="ico">◆</span>
+            <span class="label">WORDPRESS<small>ELEMENTOR BUILDS</small></span>
+          </a>
+          <a class="float-badge badge-4" href="https://linkedin.com/in/kshitij-nanda-26a370315" target="_blank" rel="noopener">
+            <span class="ico">in</span>
+            <span class="label">LINKEDIN<small>CONNECT</small></span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="marquee-band" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Performance Marketing</span><span>SEO Audits</span><span>WordPress / Elementor</span><span>Graphic Design</span><span>SPSS Analysis</span><span>Advanced Excel</span><span>Content Writing</span>
+        <span>Performance Marketing</span><span>SEO Audits</span><span>WordPress / Elementor</span><span>Graphic Design</span><span>SPSS Analysis</span><span>Advanced Excel</span><span>Content Writing</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-band" id="about">
+    <div class="wrap section">
+      <div class="about-grid">
+        <div class="reveal">
+          <div class="about-photo"><img src="kshitij-headshot.jpg" alt=""></div>
+          <div class="section-label"><span class="n">/ 01</span> About</div>
+          <h3 class="about-statement">FROM COURSEWORK<br>TO CLIENT WORK<br><span class="gold">TO PROOF.</span></h3>
+        </div>
+        <div class="about-body reveal">
+          <p>I believe marketing claims should hold up the same way a ledger does — <strong>every line backed by something real.</strong> Instead of waiting until graduation to start applying what I'm learning, I've spent my BBA taking on live audits, real builds, and client-facing design work alongside a formal Digital Marketing Masters course.</p>
+          <p>Currently based in <strong>Delhi NCR</strong>, studying Marketing with a Finance minor at IITM — and running a private tutoring practice on the side that's taught me as much about client communication as any classroom has.</p>
+          <div class="chip-tags">
+            <span class="chip-tag">Performance Marketing</span>
+            <span class="chip-tag">SEO &amp; Competitor Research</span>
+            <span class="chip-tag">WordPress / Elementor</span>
+            <span class="chip-tag">Graphic Design</span>
+            <span class="chip-tag">SPSS &amp; Advanced Excel</span>
+            <span class="chip-tag">Meta Ads Manager</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="experience">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <div class="section-label"><span class="n">/ 02</span> Experience</div>
+          <h2 class="section-title">REAL PROJECTS, <span class="gold">NOT EXERCISES.</span></h2>
+        </div>
+        <p class="section-note">Independent and client-facing work completed alongside my BBA and Digital Marketing Masters coursework.</p>
+      </div>
+
+      <div class="timeline">
+        <article class="t-card reveal" id="proj-seo">
+          <div class="t-card-head">
+            <div>
+              <h3>Technical SEO Audit</h3>
+              <div class="client">Skill Circle · Live Client</div>
+            </div>
+            <span class="t-date">Ongoing</span>
+          </div>
+          <p class="desc">Ran a full technical SEO audit and competitor analysis for a live client. Reviewed site health and on-page structure against competitors, and flagged keyword and ranking opportunities to improve organic search visibility.</p>
+          <div class="chip-row">
+            <span class="t-chip">Technical Audit</span>
+            <span class="t-chip">Competitor Analysis</span>
+            <span class="t-chip">Keyword Gap Research</span>
+          </div>
+        </article>
+
+        <article class="t-card reveal" id="proj-fitness">
+          <div class="t-card-head">
+            <div>
+              <h3>Fitness Lifestyle Hub</h3>
+              <div class="client">Independent Build</div>
+            </div>
+            <span class="t-date">WordPress</span>
+          </div>
+          <p class="desc">Designed and launched a responsive WordPress site end-to-end using Elementor. Built a user-centric UI and optimized the site's information architecture and page structure for a clear browsing experience.</p>
+          <div class="chip-row">
+            <span class="t-chip">WordPress</span>
+            <span class="t-chip">Elementor</span>
+            <span class="t-chip">Responsive UI</span>
+            <span class="t-chip">Site Architecture</span>
+          </div>
+        </article>
+
+        <article class="t-card reveal" id="proj-tuition">
+          <div class="t-card-head">
+            <div>
+              <h3>Promotional Pamphlets</h3>
+              <div class="client">Tuition Services · Local Client</div>
+            </div>
+            <span class="t-date">Print Design</span>
+          </div>
+          <p class="desc">Designed a series of promotional pamphlets for a local tuition business. Prioritized clear messaging and visual hierarchy to build trust with parents and drive enrollments, working without an existing brand guide.</p>
+          <div class="chip-row">
+            <span class="t-chip">Print Design</span>
+            <span class="t-chip">Messaging Hierarchy</span>
+            <span class="t-chip">Local Business</span>
+          </div>
+        </article>
+
+        <article class="t-card reveal" id="proj-ads">
+          <div class="t-card-head">
+            <div>
+              <h3>Ad Placement &amp; Format Testing</h3>
+              <div class="client">Meta Ads Manager · Practice</div>
+            </div>
+            <span class="t-date">Practice-only</span>
+          </div>
+          <p class="desc">Used Meta Ads Manager's preview tool to check how the same ad creative and copy render across different placements — Reels, Feed, Marketplace, and Stories — before spend.</p>
+          <div class="chip-row">
+            <span class="t-chip">Meta Ads Manager</span>
+            <span class="t-chip">Cross-placement Preview</span>
+            <span class="t-chip">Ad Copywriting</span>
+          </div>
+          <p class="fine">Campaigns were built and previewed but not published or run live.</p>
+          <a class="case-link" href="case-study-ads.html">View full case study <span class="arrow">→</span></a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats-strip">
+    <div class="wrap">
+      <div class="stats-grid">
+        <div class="stat-box reveal"><div class="stat-num">10+</div><div class="stat-label">Students Taught</div></div>
+        <div class="stat-box reveal"><div class="stat-num">18mo</div><div class="stat-label">Tutoring Experience</div></div>
+        <div class="stat-box reveal"><div class="stat-num">4</div><div class="stat-label">Live Case Studies</div></div>
+        <div class="stat-box reveal"><div class="stat-num">3rd Yr</div><div class="stat-label">BBA Marketing</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="skills">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <div class="section-label"><span class="n">/ 03</span> Skills</div>
+          <h2 class="section-title">WHAT I <span class="gold">DELIVER.</span></h2>
+        </div>
+        <p class="section-note">Built through a Digital Marketing Masters course and technical training, applied to the work above.</p>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-tile reveal"><div class="ico">📈</div><div><h3>Performance Marketing</h3><p>Campaign structure, targeting, and ad copy across paid search and social.</p></div></div>
+        <div class="skill-tile reveal"><div class="ico">🔍</div><div><h3>SEO Basics</h3><p>Technical audits, competitor gap analysis, and keyword research.</p></div></div>
+        <div class="skill-tile reveal"><div class="ico">✍️</div><div><h3>Content Writing</h3><p>Copy for ads, landing pages, and social posts tuned to the platform.</p></div></div>
+        <div class="skill-tile reveal"><div class="ico">🌐</div><div><h3>Web Development</h3><p>WordPress &amp; Elementor builds, site structure, and responsive layout.</p></div></div>
+        <div class="skill-tile reveal"><div class="ico">🎨</div><div><h3>Graphic Design</h3><p>Print and social creative for local and client-facing work.</p></div></div>
+        <div class="skill-tile reveal"><div class="ico">📊</div><div><h3>Data Analysis</h3><p>Advanced Excel and SPSS for statistical analysis and reporting.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="work" style="padding-top:0;">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <div class="section-label"><span class="n">/ 04</span> Selected Work</div>
+          <h2 class="section-title">FEATURED <span class="gold">PROJECTS.</span></h2>
+        </div>
+        <p class="section-note">A closer look at three of the case studies above.</p>
+      </div>
+      <div class="work-grid">
+        <a class="work-card reveal" href="#proj-seo">
+          <div class="work-thumb grad-1"><span class="ph-icon">🔍</span></div>
+          <div class="work-body">
+            <div class="work-tag">SEO · Live Client</div>
+            <h3>Skill Circle — Technical SEO Audit</h3>
+            <span class="work-cta">View Details →</span>
+          </div>
+        </a>
+        <a class="work-card reveal" href="#proj-fitness">
+          <div class="work-thumb grad-1"><span class="ph-icon">🌐</span></div>
+          <div class="work-body">
+            <div class="work-tag">Web Development</div>
+            <h3>Fitness Lifestyle Hub</h3>
+            <span class="work-cta">View Details →</span>
+          </div>
+        </a>
+        <a class="work-card reveal" href="case-study-ads.html">
+          <div class="work-thumb"><img src="ads-preview-2.png" alt="Meta Ads placement preview across feed, reels, and story formats" loading="lazy"></div>
+          <div class="work-body">
+            <div class="work-tag">Meta Ads · Case Study</div>
+            <h3>Ad Placement &amp; Format Testing</h3>
+            <span class="work-cta">View Case Study →</span>
+          </div>
+        </a>
+      </div>
+      <div class="cta-band reveal">
+        <p>Want the full breakdown on any of these?</p>
+        <a href="#contact">Get in touch →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-band" id="contact">
+    <div class="wrap section">
+      <div class="contact-grid">
+        <div class="reveal">
+          <div class="section-label"><span class="n">/ 05</span> Contact</div>
+          <h2 class="section-title">LET'S CREATE<br><span class="gold">SOMETHING.</span></h2>
+          <p class="sub" style="margin-top:18px;">Open to internships and entry-level performance marketing roles. I respond quickly — let's talk about the role.</p>
+          <div class="contact-info-list">
+            <div><div class="k">Email</div><div class="v"><a href="mailto:kshitijnanda08@gmail.com">kshitijnanda08@gmail.com</a></div></div>
+            <div><div class="k">Phone / WhatsApp</div><div class="v"><a href="tel:+918595268869">+91 85952 68869</a></div></div>
+            <div><div class="k">Location</div><div class="v">Delhi, India</div></div>
+            <div><div class="k">Availability</div><div class="v">Open to internships &amp; full-time roles</div></div>
+          </div>
+          <div class="social-row">
+            <a href="https://linkedin.com/in/kshitij-nanda-26a370315" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
+            <a href="mailto:kshitijnanda08@gmail.com" aria-label="Email">✉</a>
+          </div>
+        </div>
+
+        <form class="contact-form reveal" id="contactForm">
+          <div class="field">
+            <label for="cf-name">Your Name</label>
+            <input id="cf-name" name="name" type="text" placeholder="e.g. Priya Sharma" required>
+          </div>
+          <div class="field">
+            <label for="cf-email">Your Email</label>
+            <input id="cf-email" name="email" type="email" placeholder="e.g. you@company.com" required>
+          </div>
+          <div class="field">
+            <label for="cf-message">Your Message</label>
+            <textarea id="cf-message" name="message" placeholder="Tell me about the role or project..." required></textarea>
+          </div>
+          <button class="submit-btn" type="submit">Send Message →</button>
+          <p class="form-note">Opens your email client with this pre-filled — sent straight to kshitijnanda08@gmail.com.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap footer-row">
+    <span>© 2026 Kshitij Nanda. All rights reserved.</span>
+    <span>Delhi, India</span>
+  </div>
+</footer>
+
+<script>
+  // scroll-reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  revealEls.forEach(el => io.observe(el));
+
+  // active nav link on scroll
+  const sections = ['about','experience','skills','work','contact'].map(id => document.getElementById(id)).filter(Boolean);
+  const navLinkEls = document.querySelectorAll('[data-nav]');
+  const navIo = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const id = entry.target.id;
+      const link = document.querySelector('[data-nav][href="#' + id + '"]');
+      if (!link) return;
+      if (entry.isIntersecting) {
+        navLinkEls.forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+      }
+    });
+  }, { threshold: 0.5, rootMargin: '-80px 0px -55% 0px' });
+  sections.forEach(s => navIo.observe(s));
+
+  // contact form -> mailto (no backend on static GitHub Pages)
+  const form = document.getElementById('contactForm');
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const name = document.getElementById('cf-name').value;
+    const email = document.getElementById('cf-email').value;
+    const message = document.getElementById('cf-message').value;
+    const subject = encodeURIComponent('Portfolio inquiry from ' + name);
+    const body = encodeURIComponent(message + '\n\n— ' + name + ' (' + email + ')');
+    window.location.href = 'mailto:kshitijnanda08@gmail.com?subject=' + subject + '&body=' + body;
+  });
+</script>
+
+</body>
+</html>
